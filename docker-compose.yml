@@ -10,7 +10,7 @@ services:
     environment:
       WORDPRESS_DB_NAME: %PROJECT%
     volumes:
-        - ./wp-content:/var/www/html/wp-content
+        - ./theme:/var/www/html/wp-content/themes/%PROJECT%
 
   mysql:
     extends:

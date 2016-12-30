@@ -9,6 +9,8 @@ services:
       WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: root
       VIRTUAL_HOST: wp.dev
+    volumes:
+      - ./wp-plugins:/var/www/html/wp-content/plugins
     ports:
       - 80:80
 

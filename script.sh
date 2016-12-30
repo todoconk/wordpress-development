@@ -13,18 +13,19 @@ mkdir $project
 sed "s/%PROJECT%/$project/g" development/docker-compose.yml > $project/docker-compose.yml
 
 # WP
-cp -R development/wp-content $project
-ln -s $main/wp-plugins $project/wp-content/plugins
-cd $project/wp-content/themes/
+# cp -R development/wp-content $project
+# ln -s $main/wp-plugins $project/wp-content/plugins
+# cd $project/wp-content/themes/
+cd $project
 
 # Theme
 wget -q https://github.com/todoconk/sage/archive/$sage.zip
 unzip -q $sage.zip
 rm $sage.zip
-mv sage-$sage $project
+mv sage-$sage theme
 
 # npm + bower + grunt
-cd $project
+cd theme
 
 ln -s $main/node_modules node_modules
 ln -s $main/bower_components assets/vendor
