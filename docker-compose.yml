@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+
+  wordpress:
+    extends:
+      file: ../development/common.yml
+      service: wordpress
+    container_name: %PROJECT%_wp
+    environment:
+      WORDPRESS_DB_NAME: %PROJECT%
+    volumes:
+        - ./wp-content:/var/www/html/wp-content
+
+  mysql:
+    extends:
+      file: ../development/common.yml
+      service: mysql
+    container_name: %PROJECT%_db

@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+  wordpress:
+    image: wordpress
+    privileged: true
+    environment:
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: root
+      VIRTUAL_HOST: wp.dev
+    ports:
+      - 80:80
+
+  mysql:
+    image: mariadb
+    volumes:
+      - ./.docker/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
